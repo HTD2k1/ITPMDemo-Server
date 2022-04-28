@@ -14,7 +14,7 @@ const App = () => {
   const posts = useSelector((state) => state.posts);
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [currentId,dispatch]);
 
   return (
     <Container maxwidth="lg">
