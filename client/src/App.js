@@ -14,7 +14,7 @@ const App = () => {
   const posts = useSelector((state) => state.posts);
   useEffect(() => {
     dispatch(getPosts());
-  }, [currentId,dispatch]);
+  }, [currentId, dispatch]);
 
   return (
     <Container maxwidth="lg">
@@ -22,11 +22,17 @@ const App = () => {
         <Typography className={classes.heading} variant="h2" align="center">
           MY APP
         </Typography>
-        <img className={classes.image} src={IUlogo} alt="IUlogo" height="300" />
+        <img
+          className={classes.image}
+          src={IUlogo}
+          alt="IUlogo"
+          height="default"
+        />
       </AppBar>
       <Grow in>
         <Container>
           <Grid
+            className={classes.mainContainer}
             container
             justifyContent="space-between"
             alignItems="stretch"

@@ -39,7 +39,7 @@ const Post = ({ post, setCurrentId }) => {
             setCurrentId(post._id);
           }}
         >
-          <MoreHorizIcon fontsize="default" />
+          <MoreHorizIcon fontSize="medium" />
         </Button>
       </div>
       <div className={classes.details}>
@@ -51,7 +51,7 @@ const Post = ({ post, setCurrentId }) => {
         {post.title}
       </Typography>
       <CardContent>
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="body2" color="textSecondary" component="p">
           {post.message}
         </Typography>
       </CardContent>
@@ -63,8 +63,8 @@ const Post = ({ post, setCurrentId }) => {
             dispatch(likePost(post._id));
           }}
         >
-          <ThumbUpAltIcon fontsize="small" />
-          Like
+          <ThumbUpAltIcon fontSize="small" />
+          &nbsp; Like &nbsp;
           {post.likeCount}
         </Button>
         <Button
@@ -74,7 +74,7 @@ const Post = ({ post, setCurrentId }) => {
             dispatch(deletePost(post._id));
           }}
         >
-          <DeleteIcon fontsize="small" />
+          <DeleteIcon fontSize="small" />
           Delete
         </Button>
       </CardActions>
