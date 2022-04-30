@@ -1,53 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "./actions/posts";
-import IUlogo from "./images/IUlogo.png";
-import Form from "./components/Form/Form.js";
-import Posts from "./components/Posts/Posts";
-import useStyles from "./styles.js";
+import React from "react";
+import Navbar from "./components/Navbar/Navbar.js";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import { Container } from "@material-ui/core";
+
+import Home from "./components/Home/Home.js";
+import Auth from "./components/Auth/Auth.js";
 
 const App = () => {
-  const [currentId, setCurrentId] = useState(null);
-  const classes = useStyles();
-  const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts);
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
-
   return (
-    <Container maxwidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">
-          MY APP
-        </Typography>
-        <img
-          className={classes.image}
-          src={IUlogo}
-          alt="IUlogo"
-          height="default"
-        />
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid
-            className={classes.mainContainer}
-            container
-            justifyContent="space-between"
-            alignItems="stretch"
-            spacing={3}
-          >
-            <Grid item xs={12} sm={7}>
-              <Posts setCurrentId={setCurrentId} />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Form currentId={currentId} setCurrentId={setCurrentId} />
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
-    </Container>
+    <BrowserRouter>
+      <Container maxwidth="lg">
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/auth" exact component={Auth}/>
+        </Switch>
+        
+      </Container>
+    </BrowserRouter>
   );
 };
 export default App;
