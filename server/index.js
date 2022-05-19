@@ -13,18 +13,18 @@ const app = express();
 const bodyParser = require('body-parser')
 // const app = express('/posts', postRoutes);
 
-app.use(bodyParser.json( {extended:false}));
-app.use(bodyParser.urlencoded( {extended:false}));
+app.use(express.json());
+app.use(express.urlencoded( {extended:false}));
 app.use(cors());
 
-// app.use('/posts',postRoutes);
+app.use('/posts',postRoutes);
 app.use('/user',userRoutes);
 // create application/json parser
 var jsonParser = bodyParser.json()
-app.post('/posts', jsonParser, function (req, res) {
-  // create user in req.body
-  console.log("request",req.body)
-})
+// app.post('/posts', jsonParser, function (req, res) {
+//   // create user in req.body
+//   console.log("request",req.body)
+// })
 // const CONNECTION_URL = "mongodb+srv://admin:admin@webappproject.p2q1m.mongodb.net/WebAppDB?retryWrites=true&w=majority";
 //Dat database 
 const CONNECTION_URL = "mongodb+srv://admin:admin1@cluster0.fm9jr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"

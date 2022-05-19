@@ -15,9 +15,9 @@ module.exports.createPost = async (req, res) => {
   const body = req.body;
   console.log("Request body", body)
   const newPost = new PostMessage({...body, createAt: new Date().toISOString() });
-  console.log(newPost)
+  console.log(typeof(newPost))
   try {
-    await new newPost.save();
+    await newPost.save();
     res.status(201).json(newPost)
   } catch (error) {
     console.log(error)
