@@ -21,7 +21,7 @@ app.use(cors());
 app.use('/user',userRoutes);
 // create application/json parser
 var jsonParser = bodyParser.json()
-app.get('/posts', jsonParser, function (req, res) {
+app.post('/posts', jsonParser, function (req, res) {
   // create user in req.body
   console.log("request",req.body)
 })
