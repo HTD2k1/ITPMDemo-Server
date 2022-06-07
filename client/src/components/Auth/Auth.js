@@ -38,11 +38,16 @@ const Auth = () => {
     console.log(error);
     console.log("Google Sign In Unsuccessful");
   };
-  const handleSubmit = () => {};
-  const handleChange = () => {};
+  const handleSubmit = () => {
+
+  };
+  const handleChange = () => {
+
+  };
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
   };
+  
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
