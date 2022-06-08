@@ -42,7 +42,7 @@ export const createUser = async (req, res) =>{
   // Creating new user
 
 const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
-const result = await User.create({ email, password: hashedPassword, username: `${firstName} ${lastName}` });
+const result = await User.create({ email, password: hashedPassword, name: `${firstName} ${lastName}` });
 
 const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
   try {

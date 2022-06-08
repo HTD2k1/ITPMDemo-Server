@@ -323,7 +323,7 @@ Example schema for Tour Posting:
   creator: String,
   tags: [String],
   selectedFile: String,
-  likeCount:{
+  likedUsers:{
     type: Number,
     default: 0
   },
@@ -365,7 +365,7 @@ Connection: close
       "ayo"
     ],
     "selectedFile": "data:image/jpeg;base64,",
-    "likeCount": 0,
+    "likedUsers": 0,
     "createdAt": "2022-05-20T07:41:01.464Z",
     "__v": 0
   }

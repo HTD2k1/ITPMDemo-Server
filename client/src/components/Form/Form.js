@@ -28,14 +28,14 @@ const Form = ({ currentId, setCurrentId }) => {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!user?.result?.username) {
+    if (!user?.result?.name) {
       alert("PLEASE SIGN IN TO POST")
       return
     }
     if (currentId) {
-      dispatch(updatePost(currentId,{ ...postData,name: user?.result?.username} ));
+      dispatch(updatePost(currentId,{ ...postData,name: user?.result?.name} ));
     } else {
-      dispatch(createPost({...postData, name: user?.result?.username}));
+      dispatch(createPost({...postData, name: user?.result?.name}));
     }
     clear();
   };

@@ -4,7 +4,7 @@ import { getPosts, createPost, updatePost, deletePost, likePost } from '../contr
 import auth from "../middleware/auth.js"
 
 // PostMessage 
-router.get('/',auth, getPosts);
+router.get('/',getPosts);
 router.post('/',auth, createPost)
 router.patch('/:id',auth,updatePost);
 router.patch('/:id/likePost',auth,likePost);

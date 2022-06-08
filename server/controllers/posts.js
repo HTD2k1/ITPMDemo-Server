@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import PostMessage from "../models/postMessage.js";
-
+import jwt from "jsonwebtoken";
 export const getPosts = async (req, res) => {
  try {
   const posts = await PostMessage.find();
@@ -58,12 +58,12 @@ export const likePost = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No post with ID: ${id}`);
   const post = await PostMessage.findById(id);
-  const indexFound =  post.likeCount.findIndex(id => id === String(req.userId))
+  const indexFound =  post.likedUsers.findIndex(id => id === String(req.userId))
   if (indexFound === -1){
-    post.likeCount.push(req.userId)
+    post.likedUsers.push(req.userId)
   }
   else{
-    post.likeCount = post.likeCount.filter(id => id !== String(req.userId))
+    post.likedUsers = post.likedUsers.filter(id => id !== String(req.userId))
   }
   const updatedPost = await PostMessage.findByIdAndUpdate(
     id,

@@ -12,9 +12,12 @@ export const signin = (formData, router) => async (dispatch) => {
     console.log(error)
     switch(error.response.status) {
       case 500:
-        alert("YOU HAVE NOT REGISTERED")
+        alert("OOPS!!! SOMETHING WENT WRONG")
         break;
       case 401:
+        alert("YOU HAVE NOT REGISTERED")
+        break;
+      case 400:
         alert("INCORRECT PASSWORD")
         break;
       default:
@@ -32,6 +35,15 @@ export const signup = (formData, router) => async (dispatch) => {
     router.push('/');
   } catch (error) {
     console.log(error);
-    alert("OOPS!!! SOMETHING WENT WRONG")
+    switch(error.response.status) {
+      case 500:
+        alert("OOPS!!! SOMETHING WENT WRONG")
+        break;
+      case 400:
+        alert("USER ALREADY EXISTS ")
+        break;
+      default:
+        // code block
+    } 
   }
 };

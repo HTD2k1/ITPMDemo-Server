@@ -33,9 +33,10 @@ const Auth = () => {
   };
   
   const googleSuccess = async (res) =>{
-    const result = res?.profileOj;
+    const result = res?.profileObj;
     const token = res?.tokenId;
     try {
+      console.log("Result: ",result)
       dispatch({type: AUTH, data: {result,token}})
       history.push('/');
     } catch (error) {
