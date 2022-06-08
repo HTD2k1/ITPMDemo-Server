@@ -14,21 +14,29 @@ import { GoogleLogin } from "react-google-login";
 import Icon from './Icon';
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import {AUTH} from '../../constants/actionTypes'
+import { signup, signin } from "../../actions/auth";
+const initialForm = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
+  // Use hooks
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
+
+  //Use states 
+  const [form, setForm] = useState(initialForm)
+  const [isSignup, setIsSignup] = useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
-  const [isSignup, setIsSignup] = useState(false);
+  
   const googleSuccess = async (res) =>{
-    const result = res?.profileObj;
+    const result = res?.profileOj;
     const token = res?.tokenId;
     try {
-      dispatch({type: 'AUTH', data: {result,token}})
+      dispatch({type: AUTH, data: {result,token}})
       history.push('/');
     } catch (error) {
       console.log(error);
@@ -38,14 +46,22 @@ const Auth = () => {
     console.log(error);
     console.log("Google Sign In Unsuccessful");
   };
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isSignup){
+      dispatch(signup(form,history))
+    }
+    else{
+      dispatch(signin(form,history))
+    }
   };
-  const handleChange = () => {
-
+  const handleChange = (e) => {
+    setForm({...form, [e.target.name]: e.target.value})
   };
   const switchMode = () => {
+    setForm(initialForm)
     setIsSignup((prevIsSignup) => !prevIsSignup);
+    setShowPassword(false)
   };
   
   return (

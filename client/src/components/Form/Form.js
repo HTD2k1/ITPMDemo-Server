@@ -8,16 +8,17 @@ import { createPost, updatePost } from "../../actions/posts";
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
-    creator: "",
     title: "",
     message: "",
     tags: "",
     selectedFile: "",
   });
+  
   const classes = useStyles();
   const post = useSelector((state) =>
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
+  const user = JSON.parse(localStorage.getItem('profile'));
   useEffect(() => {
     if (post) {
       setPostData(post);
@@ -27,23 +28,30 @@ const Form = ({ currentId, setCurrentId }) => {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!user?.result?.username) {
+      alert("PLEASE SIGN IN TO POST")
+      return
+    }
     if (currentId) {
-      dispatch(updatePost(currentId, postData));
+      dispatch(updatePost(currentId,{ ...postData,name: user?.result?.username} ));
     } else {
-      dispatch(createPost(postData));
+      dispatch(createPost({...postData, name: user?.result?.username}));
     }
     clear();
   };
   const clear = () => {
     setCurrentId(null);
     setPostData({
-      creator: "",
       title: "",
       message: "",
       tags: "",
       selectedFile: "",
     });
+
+    
   };
+
+  
   return (
     <Paper className={classes.paper}>
       <form
@@ -53,9 +61,9 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
-          {currentId ? "Editing" : "Creating"} a Posting{" "}
+          {currentId ? "Editing" : "Creating"} a Post{" "}
         </Typography>
-        <TextField
+        {/* <TextField
           name="creator"
           variant="outlined"
           label="Creator"
@@ -64,7 +72,7 @@ const Form = ({ currentId, setCurrentId }) => {
           onChange={(e) =>
             setPostData({ ...postData, creator: e.target.value })
           }
-        />
+        /> */}
         <TextField
           name="title"
           variant="outlined"
@@ -74,6 +82,8 @@ const Form = ({ currentId, setCurrentId }) => {
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
         <TextField
+          multiline
+          minRows={5}
           name="message"
           variant="outlined"
           label="Message"
@@ -84,6 +94,7 @@ const Form = ({ currentId, setCurrentId }) => {
           }
         />
         <TextField
+
           name="tags"
           variant="outlined"
           label="Tags"

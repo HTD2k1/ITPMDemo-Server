@@ -10,8 +10,11 @@ export const login = async (req, res) =>{
 const {email, password} = req.body
 try {
   const existingUser = await User.findOne({email})
-if(!existingUser)
-  return res.status(404).json({message: "You have not registered"})
+if(!existingUser){
+  console.log("No existing user found")
+  return res.status(401).json({message: "You have not registered"})
+}
+
 
 // Compare password
 const isPasswordCorrect = await bcrypt.compare( password,existingUser.password)
