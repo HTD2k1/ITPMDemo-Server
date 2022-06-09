@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar.js";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { Container } from "@material-ui/core";
 
@@ -13,8 +13,12 @@ const App = () => {
       <Container maxwidth="lg">
         <Navbar />
         <Switch>
-          <Route path="/" exact component={Home}/>
+          <Route path="/" exact component={() => <Redirect to="/posts" />}/>
           <Route path="/auth" exact component={Auth}/>
+          <Route path="/posts" exact component={Home} />
+          <Route path="/posts/search" exact component={Home} />
+          {/* <Route path="/posts/:id" exact component={PostDetails} />
+          <Route path={['/creators/:name', '/tags/:name']} component={CreatorOrTag} /> */}
         </Switch>
         
       </Container>
