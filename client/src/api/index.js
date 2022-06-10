@@ -11,7 +11,11 @@ URL.interceptors.request.use((req) => {
 });
 
 export const fetchPost = (id) => URL.get(`/posts/${id}`);
-export const fetchPosts = (page) => URL.get(`/posts?page=${page}`);
+export const fetchPosts = (page) =>{
+  console.log("FETCHING POSTS: page",page)
+  const result = URL.get(`/posts?page=${page}`);
+  return result
+} 
 export const fetchPostsByCreator = (name) => URL.get(`/posts/creator?name=${name}`);
 export const fetchPostsBySearch = (searchQuery) => URL.get(`/posts/search?searchQuery=${searchQuery.search || 'none'}&tags=${searchQuery.tags}`);
 export const createPost = (newPost) => URL.post('/posts', newPost);

@@ -276,7 +276,7 @@ The package includes many pre-configured HTML elements with professional and sle
   - Design Concept:
   ![SiteUI](https://media.discordapp.net/attachments/982697573028626432/982903161155092480/unknown.png?width=1440&height=649)
 
-The styling of the site is similar to Shoppee where Posts are aligned as grids with the most important info like names, likes, Agency is displayed and user can click these posts to get into the detailed view.
+The styling of the site is similar to Shoppee where Posts are aligned as grids with the most important info like names, likedUsers, Agency is displayed and user can click these posts to get into the detailed view.
 
 ![Detailed-view](https://media.discordapp.net/attachments/982697573028626432/982904759478534154/unknown.png?width=1328&height=676)
 

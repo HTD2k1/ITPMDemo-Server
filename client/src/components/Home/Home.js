@@ -3,11 +3,11 @@ import { Container, Grow, Grid, AppBar, TextField, Button, Paper } from '@materi
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
-import Paginate from '../Pagination/Pagination';
-// import { getPostsBySearch } from '../../actions/posts';
+import Paginate from '../Pagination';
+import { getPostsBySearch } from '../../actions/posts';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
-import Pagination from '../Pagination';
+import { Pagination } from '@material-ui/lab';
 import useStyles from './styles';
 
 function useQuery() {
@@ -26,7 +26,14 @@ const Home = () => {
   const [tags, setTags] = useState([]);
   const history = useHistory();
 
-  
+  const searchPost = () => {
+    if (search.trim() || tags) {
+      dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
+      history.push(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+    } else {
+      history.push('/');
+    }
+  };
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
@@ -61,7 +68,7 @@ const Home = () => {
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             {(!searchQuery && !tags.length) && (
               <Paper className={classes.pagination} elevation={6}>
-                <Pagination page={page} />
+                <Paginate page={page} />
               </Paper>
             )}
           </Grid>
