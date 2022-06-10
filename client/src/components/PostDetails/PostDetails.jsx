@@ -77,9 +77,9 @@ const Post = () => {
               <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPost(_id)} key={_id}>
                 <Typography gutterBottom variant="h6">{title}</Typography>
                 <Typography gutterBottom variant="subtitle2">{name}</Typography>
-                <Typography gutterBottom variant="subtitle2">{message}</Typography>
-                <Typography gutterBottom variant="subtitle1">likedUsers: {likedUsers.length}</Typography>
-                <img src={selectedFile} width="200px" />
+                <Typography gutterBottom variant="subtitle2">{message.split(' ').splice(0, 20).join(' ')}...</Typography>
+                <Typography gutterBottom variant="subtitle1">Likes: {likedUsers.length}</Typography>
+                <img src={selectedFile} width="200px" height="150px" />
               </div>
             ))}
           </div>
