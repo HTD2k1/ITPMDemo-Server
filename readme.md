@@ -13,7 +13,7 @@
 <h3 align="center">Web Application Development Project</h3>
 
   <p align="center">
-    Tourism Booking and Management Site
+    Tourism Social Media and Management Site
     <br />
 </div>
 
@@ -149,7 +149,7 @@ Our app aims to give users and travel agencies a medium to communicate. Make it 
 
 We chose to develop this website to learn more skills about the MERN stack architecture and have a clean, useful, intuitive website for users. It has core skills for webapps such as CRUD functionality, authentication and authorization, commercial website capabilities like reviews, rating, searching, tags,... 
 
-With all these functions, which tests our skills and is in demand in the market we decided to create this website for the Web Application Development course.
+With all these functions, which tests the skills we learned during the course and is in demand in the market we decided to create this website for the Web Application Development course.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -165,31 +165,27 @@ According to the [project requirements](https://docs.google.com/document/d/1KiWX
 ### Main Features
 - CRUD Functionality:
 
-  The website has many CRUD functionality depending on whether the user is a Tourist user or an Agency user.
-
-  - Agency user CRUD:
-
+  The website has many CRUD functionality which interacts witht he database backend:
+  - Posts CRUD:
+    - Search through and view other user's posts.
     - Adding, editing and removing Tour Postings.
-    - Creating, editing and deleting their accounts.
-    - Replying to user reviews and comments.
-  - Tourist user CRUD:
-    - Applying to Tour Postings.
-    - Creating, editing and deleting their accounts.
-    - Leave ratings, comments, reviews on Tour Postings.
+    - Leave comments and ratings.
+    - Posts likes, tags, upload pictures,...
+  - Account CRUD:
+    - Create, edit and view your own accounts.
+    - Interacts with other users and posts.
 - Authentication and Authorization:
-  - Agency user:
-    - Agency users have to login with their site accounts (can't use Google login)
-    - Have access and permission to their own Tour Postings (but not ratings and comments).
-    - Can view users who registered to their Tour.
-  - Tourist user:
     - Users can login with site accounts or use Google login.
-    - Can leave Ratings and Comments about Tour Postings.
+    - User's session is stored in the internet standard JWT (JSON web tokens).
+    - User's password are hashed before storage.
+    - Have access and permission to their own Tour Postings (but not ratings and comments).
+    - Can leave Ratings and Comments about Postings.
 ### Secondary Features
-  - Searching: Searchbox and tags.
-  - Rating and reviews.
-  - Reccomendations: Tourists get reccommened Tour Postings based on preferences.
-  - Payment.
-  - Customer support: Chatbox between Agency and Tourist.
+  - Searching: Searchbox and tags. - Completed
+  - Rating and reviews. - Completed
+  - Reccomendations: Tourists get reccommened Tour Postings based on preferences. - Completed
+  - Payment. - Ongoing
+  - Customer support: Chatbox between Agency and Tourist. - Ongoing
 
 ## Contributions
 
@@ -205,6 +201,7 @@ Git: [github](https://github.com/DB-Duy)
     - Design and code the layout and UI/UX of the site
     - Post creation and design
     - Login flow and design
+    - Post ratings function.
     - Debugging
   - Database setup
     - Setup MongoDB 
@@ -225,9 +222,10 @@ Git: [github](https://github.com/HTD2k1)
     - Brainstorm concept and features
     - Backend features and quality of life improvements
   - Back End design and development
+    - Post comments functio
     - Implement backend connection to database
     - Implement post details view
-    - Reccomendation algorithm
+    - Recomendation algorithm
     - Debugging
   - Full stack development
     - Set up API between Client and Server
@@ -280,7 +278,7 @@ The styling of the site is similar to Shoppee where Posts are aligned as grids w
 
 ![Detailed-view](https://media.discordapp.net/attachments/982697573028626432/982904759478534154/unknown.png?width=1328&height=676)
 
-In the details view Tourist can see information about the Tour. Users can register for the tour, see tour dates, locations, ect...
+In the details view Tourist can see information about the Tour. Users can rate, leave comments on the tour, see tour dates, locations, ect...
 
 There is also the "You might also like" section to give recommendations about Tours the user might like.
 
@@ -434,17 +432,17 @@ The main usecases for the website:
 The Sequence Diagram is similar with the Google login feature. Replace the Server and Database with Google API.
 <hr>
 
-- Create a Tour Posting
+- Create a Posting
 
   - Prerequisite:
-    - User must be logged in with a Tour Agency account.
+    - User must be logged in with an account.
     - Server and database is running.
 
 ![Login-Sequence](https://media.discordapp.net/attachments/982697573028626432/982956432406249502/unknown.png?width=632&height=676)
 
 <hr>
 
-- Register to a Tour
+- Register to a Tour (To be implemented)
   - Prerequisite:
     - User must be logged in with a Tourist account.
     - Server and database is running.
