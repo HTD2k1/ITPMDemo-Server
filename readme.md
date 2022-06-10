@@ -318,12 +318,14 @@ Example schema for Tour Posting:
 {
   title: String,
   message: String, 
+  name: String,
   creator: String,
   tags: [String],
   selectedFile: String,
+  comments: { type: [String], default: [] },
   likedUsers:{
-    type: Number,
-    default: 0
+    type: [String],
+    default: []
   },
   createdAt:{
     type: Date,
@@ -358,12 +360,13 @@ Connection: close
     "_id": "6263fe5481698ed4ccf76af3",
     "title": "WELCOME",
     "message": "HIIII",
-    "creator": "as",
+    "name": "Tester",
+    "creator": "62a1a33f53a48464702aaf89",
     "tags": [
       "ayo"
     ],
     "selectedFile": "data:image/jpeg;base64,",
-    "likedUsers": 0,
+    "likedUsers": [],
     "createdAt": "2022-05-20T07:41:01.464Z",
     "__v": 0
   }

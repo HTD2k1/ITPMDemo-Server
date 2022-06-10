@@ -9,11 +9,14 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 50px',
+    padding: '10px 30px',
   },
   heading: {
     color: 'rgba(0,183,255, 1)',
     textDecoration: 'none',
+    [theme.breakpoints.down('sm')]: {
+     display: 'None',
+    },
   },
   image: {
     marginLeft: '15px',
@@ -26,7 +29,7 @@ export default makeStyles((theme) => ({
   profile: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '400px',
+    width: '280px',
   },
   name: {
     display: 'flex',

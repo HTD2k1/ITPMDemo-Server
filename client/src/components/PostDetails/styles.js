@@ -26,12 +26,12 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       marginLeft: 0,
     },
+    maxWidth:'60%'
   },
   recommendedPosts: {
     display: 'flex',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
-    },
+    overflow: 'scroll',
+
   },
   loadingPaper: {
     display: 'flex',
@@ -44,10 +44,19 @@ export default makeStyles((theme) => ({
   commentsOuterContainer: {
     display: 'flex',
     justifyContent: 'space-between',
+    flexWrap: "wrap",
   },
   commentsInnerContainer: {
     height: '200px',
     overflowY: 'auto',
     marginRight: '30px',
   },
+  recommendedCard: {
+    display: 'flex',
+    width: '100%',
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: '20px'
+    },
+    overflow:'visible',
+  }
 }));

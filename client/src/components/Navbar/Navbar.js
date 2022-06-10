@@ -30,16 +30,17 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>
+      <img className={classes.image} src={IUlogo} alt="IUlogo" height="100" />
         <Typography
           component={Link}
           to="/"
           className={classes.heading}
-          variant="h2"
+          variant="h3"
           align="center"
         >
-          MY APP
+          JOURNEY 
         </Typography>
-        <img className={classes.image} src={IUlogo} alt="IUlogo" height="100" />
+        
       </div>
       <Toolbar className={classes.toolbar}>
         {user ? (
@@ -48,6 +49,7 @@ const Navbar = () => {
               className={classes.purple}
               alt={user.result.name}
               src={user.result.imageUrl}
+              styles ={{margin: "10px"}}
             >
               {user.result.name.charAt(0)}
             </Avatar>
