@@ -136,7 +136,7 @@ What you should see after running the server:
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Product Name Screen Shot](https://media.discordapp.net/attachments/982697573028626432/982697594130145300/unknown.png?width=1379&height=676)
+![Product Name Screen Shot](https://media.discordapp.net/attachments/982697573028626432/984985755287953458/unknown.png?width=769&height=676)
 
 Websites such as Shoppee or Lazada are massively successful commercial websites for selling and buying products. Our apps apply the same design for a different field: Tourism. 
 
@@ -272,18 +272,20 @@ Material UI Core is a library that allows us to import and use different compone
 
 The package includes many pre-configured HTML elements with professional and sleek styling for components like text box and grids.
   - Design Concept:
-  ![SiteUI](https://media.discordapp.net/attachments/982697573028626432/982903161155092480/unknown.png?width=1440&height=649)
+  
+![SiteUI](https://media.discordapp.net/attachments/982697573028626432/984986304221679646/unknown.png?width=865&height=676)
 
 The styling of the site is similar to Shoppee where Posts are aligned as grids with the most important info like names, likedUsers, Agency is displayed and user can click these posts to get into the detailed view.
 
-![Detailed-view](https://media.discordapp.net/attachments/982697573028626432/982904759478534154/unknown.png?width=1328&height=676)
+![Detailed-view](https://media.discordapp.net/attachments/982697573028626432/984986718983843901/unknown.png?width=870&height=676)
 
 In the details view Tourist can see information about the Tour. Users can rate, leave comments on the tour, see tour dates, locations, ect...
 
+![You-Might-Also-Like](https://media.discordapp.net/attachments/982697573028626432/984987090347515934/unknown.png?width=785&height=676)
 There is also the "You might also like" section to give recommendations about Tours the user might like.
 
 
-2. Event handling and responsiveness:
+1. Event handling and responsiveness:
 
 A powerful tool in ReactJS are Hooks which simplifies React states and data. With Hooks, you can extract stateful logic from a component so it can be tested independently and reused. Hooks allow you to reuse stateful logic without changing your component hierarchy. 
 
