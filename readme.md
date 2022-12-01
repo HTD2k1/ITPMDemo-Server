@@ -222,7 +222,7 @@ Git: [github](https://github.com/HTD2k1)
     - Brainstorm concept and features
     - Backend features and quality of life improvements
   - Back End design and development
-    - Post comments functio
+    - Post comments function
     - Implement backend connection to database
     - Implement post details view
     - Recomendation algorithm
