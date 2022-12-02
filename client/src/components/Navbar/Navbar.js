@@ -38,7 +38,7 @@ const Navbar = () => {
           variant="h3"
           align="center"
         >
-          JOURNEY 
+          ChoIU 
         </Typography>
         
       </div>

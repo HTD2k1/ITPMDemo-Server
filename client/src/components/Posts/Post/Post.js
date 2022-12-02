@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, ButtonBase } from '@material-ui/core/';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, ButtonBase, Chip, Avatar } from '@material-ui/core/';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
@@ -44,7 +44,7 @@ const Post = ({ post, setCurrentId }) => {
     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
   };
 
-  const openPost = (e) => {
+  const openPost = () => {
     // dispatch(getPost(post._id, history));
 
     history.push(`/posts/${post._id}`);
@@ -79,8 +79,10 @@ const Post = ({ post, setCurrentId }) => {
         )}
         <div className={classes.details}>
           <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
+          <Chip label={post.price} avatar={<Avatar style={{backgroundColor:'#e8f5e9', color:'black', fontWeight:'bold'}}>đ</Avatar>} style={{backgroundColor:'#66bb6a', color:'white'}} clickable size="small" />
         </div>
-        <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>
+        <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.title} 
+        </Typography>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">{post.message.split(' ').splice(0, 20).join(' ')}...</Typography>
         </CardContent>
