@@ -13,7 +13,8 @@
 <h3 align="center">Web Application Development Project</h3>
 
   <p align="center">
-    Tourism Social Media and Management Site
+    ITPM demo
+    
     <br />
 </div>
 
